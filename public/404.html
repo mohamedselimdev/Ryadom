@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ru" data-title="meta.notFound">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Рядом</title>
+  <link rel="icon" href="images/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" referrerpolicy="no-referrer">
+  <link rel="stylesheet" href="css/main.css">
+  <script type="module" src="js/pages/not-found.js"></script>
+</head>
+<body>
+  <div class="bubbles" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span></div>
+
+  <header class="site-header">
+    <div class="container nav">
+      <a class="brand" href="/">
+        <img src="images/icon.png" alt="" width="34" height="34">
+        <span data-i18n="brand">Рядом</span>
+      </a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-menu" data-i18n-aria-label="nav.menu" aria-label="Открыть меню">
+        <span></span><span></span><span></span>
+      </button>
+      <nav id="nav-menu" class="nav-menu">
+        <a href="/#about" data-i18n="nav.about">О нас</a>
+        <a href="/#plans" data-i18n="nav.plans">Тарифы</a>
+        <a href="/booking" data-i18n="nav.specialists">Специалисты</a>
+        <a href="/#library" data-i18n="nav.library">Библиотека</a>
+        <a href="/login" data-guest data-i18n="nav.login">Вход</a>
+        <a href="/booking#my-sessions" data-auth hidden data-i18n="nav.mySessions">Мои записи</a>
+        <button type="button" class="link-btn" data-auth data-logout hidden data-i18n="nav.logout">Выйти</button>
+        <select class="lang-select" data-lang-switch data-i18n-aria-label="lang.label" aria-label="Язык"></select>
+        <a class="btn btn-primary" href="/chat" data-i18n="nav.chat">Чат с ИИ ➔</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="page-center">
+    <section class="glass-card not-found">
+      <h1>404</h1>
+      <p data-i18n="notFound.text"></p>
+      <a class="btn btn-primary" href="/" data-i18n="notFound.home"></a>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <a class="brand" href="/">
+          <img src="images/icon.png" alt="" width="34" height="34">
+          <span data-i18n="brand">Рядом</span>
+        </a>
+        <div class="footer-links">
+          <div>
+            <a href="/" data-i18n="footer.home">Главная</a>
+            <a href="/#about" data-i18n="footer.about">О нас</a>
+            <a href="/#plans" data-i18n="footer.plans">Тарифы</a>
+          </div>
+          <div>
+            <a href="/booking" data-i18n="footer.specialists">Найти специалиста</a>
+            <a href="/chat" data-i18n="footer.chat">Чат поддержки</a>
+            <a href="/login" data-i18n="footer.login">Личный кабинет</a>
+          </div>
+        </div>
+        <div class="socials">
+          <a href="#" aria-label="VK"><i class="fab fa-vk"></i></a>
+          <a href="#" aria-label="Telegram"><i class="fab fa-telegram"></i></a>
+          <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+          <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+        </div>
+      </div>
+      <p class="footer-bottom">© <span data-year>2025</span> <span data-i18n="brand">Рядом</span>. <span data-i18n="footer.rights">Все права защищены.</span></p>
+    </div>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ru" data-title="meta.chat">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Рядом</title>
+  <link rel="icon" href="images/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" referrerpolicy="no-referrer">
+  <link rel="stylesheet" href="css/main.css">
+  <script type="module" src="js/pages/chat.js"></script>
+</head>
+<body>
+  <div class="bubbles" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span></div>
+
+  <header class="site-header">
+    <div class="container nav">
+      <a class="brand" href="/">
+        <img src="images/icon.png" alt="" width="34" height="34">
+        <span data-i18n="brand">Рядом</span>
+      </a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-menu" data-i18n-aria-label="nav.menu" aria-label="Открыть меню">
+        <span></span><span></span><span></span>
+      </button>
+      <nav id="nav-menu" class="nav-menu">
+        <a href="/#about" data-i18n="nav.about">О нас</a>
+        <a href="/#plans" data-i18n="nav.plans">Тарифы</a>
+        <a href="/booking" data-i18n="nav.specialists">Специалисты</a>
+        <a href="/#library" data-i18n="nav.library">Библиотека</a>
+        <a href="/login" data-guest data-i18n="nav.login">Вход</a>
+        <a href="/booking#my-sessions" data-auth hidden data-i18n="nav.mySessions">Мои записи</a>
+        <button type="button" class="link-btn" data-auth data-logout hidden data-i18n="nav.logout">Выйти</button>
+        <select class="lang-select" data-lang-switch data-i18n-aria-label="lang.label" aria-label="Язык"></select>
+        <a class="btn btn-primary" href="/chat" data-i18n="nav.chat">Чат с ИИ ➔</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="chat-page">
+    <section class="chat">
+      <div class="chat-head">
+        <img src="images/icon.png" alt="" width="40" height="40">
+        <div>
+          <h1 data-i18n="chat.title"></h1>
+          <p data-i18n="chat.status"></p>
+        </div>
+      </div>
+      <div id="chat-messages" class="chat-messages" role="log" aria-live="polite">
+        <div class="message bot">
+          <img src="images/icon.png" alt="">
+          <p data-i18n="chat.greeting"></p>
+        </div>
+      </div>
+      <form id="chat-form" class="chat-form" autocomplete="off">
+        <input class="input" name="message" maxlength="1000" required dir="auto" data-i18n-placeholder="chat.placeholder" data-i18n-aria-label="chat.placeholder">
+        <button type="submit" class="btn btn-primary" data-i18n-aria-label="chat.send"><i class="fas fa-paper-plane" aria-hidden="true"></i></button>
+      </form>
+      <p class="chat-disclaimer" data-i18n="chat.disclaimer"></p>
+    </section>
+  </main>
+</body>
+</html>

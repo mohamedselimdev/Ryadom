@@ -1,29 +1,26 @@
 import { DataTypes } from 'sequelize';
 import { sequelize } from '../config/db.js';
 
-const User = sequelize.define('User', {
-  id: {
-    type: DataTypes.INTEGER,
-    primaryKey: true,
-    autoIncrement: true,
+export const User = sequelize.define(
+  'User',
+  {
+    id: { type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true },
+    name: { type: DataTypes.STRING(100), allowNull: false },
+    email: { type: DataTypes.STRING(254), allowNull: false, unique: true },
+    phone: { type: DataTypes.STRING(20) },
+    gender: { type: DataTypes.ENUM('male', 'female') },
+    birthDate: { type: DataTypes.DATEONLY },
+    password: { type: DataTypes.STRING, allowNull: false },
+    role: { type: DataTypes.ENUM('user', 'admin'), allowNull: false, defaultValue: 'user' },
   },
-  name: {
-    type: DataTypes.STRING,
-    allowNull: false,
-  },
-  email: {
-    type: DataTypes.STRING,
-    allowNull: false,
-    unique: true,
-  },
-  password: {
-    type: DataTypes.STRING,
-    allowNull: false,
-  },
-  role: {
-    type: DataTypes.ENUM('user', 'psychologist'),
-    defaultValue: 'user',
-  },
-});
+  {
+    defaultScope: { attributes: { exclude: ['password'] } },
+    scopes: { withPassword: { attributes: { include: ['password'] } } },
+  }
+);
 
-export { User }; // تصدير المتغير باستخدام export
+User.prototype.toJSON = function toJSON() {
+  const values = { ...this.get() };
+  delete values.password;
+  return values;
+};

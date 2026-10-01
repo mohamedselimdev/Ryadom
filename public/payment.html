@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="ru" data-title="meta.payment">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Рядом</title>
+  <link rel="icon" href="images/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" referrerpolicy="no-referrer">
+  <link rel="stylesheet" href="css/main.css">
+  <script type="module" src="js/pages/payment.js"></script>
+</head>
+<body>
+  <div class="bubbles" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span></div>
+
+  <header class="site-header">
+    <div class="container nav">
+      <a class="brand" href="/">
+        <img src="images/icon.png" alt="" width="34" height="34">
+        <span data-i18n="brand">Рядом</span>
+      </a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-menu" data-i18n-aria-label="nav.menu" aria-label="Открыть меню">
+        <span></span><span></span><span></span>
+      </button>
+      <nav id="nav-menu" class="nav-menu">
+        <a href="/#about" data-i18n="nav.about">О нас</a>
+        <a href="/#plans" data-i18n="nav.plans">Тарифы</a>
+        <a href="/booking" data-i18n="nav.specialists">Специалисты</a>
+        <a href="/#library" data-i18n="nav.library">Библиотека</a>
+        <a href="/login" data-guest data-i18n="nav.login">Вход</a>
+        <a href="/booking#my-sessions" data-auth hidden data-i18n="nav.mySessions">Мои записи</a>
+        <button type="button" class="link-btn" data-auth data-logout hidden data-i18n="nav.logout">Выйти</button>
+        <select class="lang-select" data-lang-switch data-i18n-aria-label="lang.label" aria-label="Язык"></select>
+        <a class="btn btn-primary" href="/chat" data-i18n="nav.chat">Чат с ИИ ➔</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="page-center">
+    <section class="glass-card wide">
+      <h1 class="card-title" data-i18n="payment.title"></h1>
+      <p class="notice" data-i18n="payment.notice"></p>
+      <form id="payment-form" class="form" autocomplete="off">
+        <p id="form-message" class="form-message" role="status" hidden></p>
+        <div class="field">
+          <label for="plan" data-i18n="payment.plan"></label>
+          <select id="plan" name="plan">
+            <option value="safety" data-i18n="plans.safety.name"></option>
+            <option value="hope" data-i18n="plans.hope.name"></option>
+            <option value="satisfaction" data-i18n="plans.satisfaction.name"></option>
+          </select>
+          <small id="plan-summary" class="field-hint"></small>
+        </div>
+        <div class="field">
+          <label for="holder" data-i18n="payment.holder"></label>
+          <input class="input" id="holder" name="holder" required maxlength="60" data-i18n-placeholder="payment.holderPlaceholder">
+        </div>
+        <div class="field">
+          <label for="cardNumber" data-i18n="payment.card"></label>
+          <input class="input ltr" id="cardNumber" name="cardNumber" inputmode="numeric" required placeholder="0000 0000 0000 0000">
+        </div>
+        <div class="field-row">
+          <div class="field">
+            <label for="expiry" data-i18n="payment.expiry"></label>
+            <input class="input ltr" id="expiry" name="expiry" inputmode="numeric" required placeholder="MM/YY">
+          </div>
+          <div class="field">
+            <label for="cvv" data-i18n="payment.cvv"></label>
+            <input class="input ltr" id="cvv" name="cvv" type="password" inputmode="numeric" required placeholder="•••">
+          </div>
+        </div>
+        <button type="submit" class="btn btn-primary btn-block" data-i18n="payment.submit"></button>
+      </form>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <a class="brand" href="/">
+          <img src="images/icon.png" alt="" width="34" height="34">
+          <span data-i18n="brand">Рядом</span>
+        </a>
+        <div class="footer-links">
+          <div>
+            <a href="/" data-i18n="footer.home">Главная</a>
+            <a href="/#about" data-i18n="footer.about">О нас</a>
+            <a href="/#plans" data-i18n="footer.plans">Тарифы</a>
+          </div>
+          <div>
+            <a href="/booking" data-i18n="footer.specialists">Найти специалиста</a>
+            <a href="/chat" data-i18n="footer.chat">Чат поддержки</a>
+            <a href="/login" data-i18n="footer.login">Личный кабинет</a>
+          </div>
+        </div>
+        <div class="socials">
+          <a href="#" aria-label="VK"><i class="fab fa-vk"></i></a>
+          <a href="#" aria-label="Telegram"><i class="fab fa-telegram"></i></a>
+          <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+          <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+        </div>
+      </div>
+      <p class="footer-bottom">© <span data-year>2025</span> <span data-i18n="brand">Рядом</span>. <span data-i18n="footer.rights">Все права защищены.</span></p>
+    </div>
+  </footer>
+</body>
+</html>

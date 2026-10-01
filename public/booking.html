@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="ru" data-title="meta.booking">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Рядом</title>
+  <link rel="icon" href="images/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" referrerpolicy="no-referrer">
+  <link rel="stylesheet" href="css/main.css">
+  <script type="module" src="js/pages/booking.js"></script>
+</head>
+<body>
+  <div class="bubbles" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span></div>
+
+  <header class="site-header">
+    <div class="container nav">
+      <a class="brand" href="/">
+        <img src="images/icon.png" alt="" width="34" height="34">
+        <span data-i18n="brand">Рядом</span>
+      </a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-menu" data-i18n-aria-label="nav.menu" aria-label="Открыть меню">
+        <span></span><span></span><span></span>
+      </button>
+      <nav id="nav-menu" class="nav-menu">
+        <a href="/#about" data-i18n="nav.about">О нас</a>
+        <a href="/#plans" data-i18n="nav.plans">Тарифы</a>
+        <a href="/booking" data-i18n="nav.specialists">Специалисты</a>
+        <a href="/#library" data-i18n="nav.library">Библиотека</a>
+        <a href="/login" data-guest data-i18n="nav.login">Вход</a>
+        <a href="/booking#my-sessions" data-auth hidden data-i18n="nav.mySessions">Мои записи</a>
+        <button type="button" class="link-btn" data-auth data-logout hidden data-i18n="nav.logout">Выйти</button>
+        <select class="lang-select" data-lang-switch data-i18n-aria-label="lang.label" aria-label="Язык"></select>
+        <a class="btn btn-primary" href="/chat" data-i18n="nav.chat">Чат с ИИ ➔</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="page-head">
+      <div class="container">
+        <h1 class="section-title" data-i18n="booking.title"></h1>
+        <p class="section-subtitle" data-i18n="booking.subtitle"></p>
+        <p id="page-message" class="form-message" role="status" hidden></p>
+      </div>
+    </section>
+
+    <section class="container">
+      <div id="doctors-grid" class="doctors-grid"></div>
+    </section>
+
+    <section class="section" id="my-sessions">
+      <div class="container narrow">
+        <h2 class="section-title" data-i18n="booking.mySessions"></h2>
+        <div data-auth hidden>
+          <div id="sessions-list" class="sessions-list"></div>
+        </div>
+        <p class="empty-state" data-guest>
+          <span data-i18n="booking.loginToSee"></span><br><br>
+          <a class="btn btn-primary" href="/login?next=%2Fbooking" data-i18n="nav.login"></a>
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <dialog id="booking-dialog" class="modal" aria-labelledby="booking-title">
+    <div class="modal-body">
+      <button type="button" class="link-btn modal-close" data-close-dialog data-i18n-aria-label="booking.close">&times;</button>
+      <h2 id="booking-title" data-i18n="booking.modalTitle"></h2>
+      <p id="booking-doctor" class="card-text"></p>
+      <form id="booking-form" class="form" novalidate>
+        <p id="form-message" class="form-message" role="alert" hidden></p>
+        <input type="hidden" name="psychologistId">
+        <div class="field">
+          <label for="startsAt" data-i18n="booking.startsAt"></label>
+          <input class="input" id="startsAt" name="startsAt" type="datetime-local" step="1800" required>
+          <span class="field-error" aria-live="polite"></span>
+        </div>
+        <div class="field">
+          <label for="format" data-i18n="booking.format"></label>
+          <select id="format" name="format">
+            <option value="video" data-i18n="format.video"></option>
+            <option value="audio" data-i18n="format.audio"></option>
+            <option value="chat" data-i18n="format.chat"></option>
+          </select>
+          <span class="field-error" aria-live="polite"></span>
+        </div>
+        <div class="field">
+          <label for="note" data-i18n="booking.note"></label>
+          <textarea id="note" name="note" rows="3" maxlength="500" dir="auto" data-i18n-placeholder="booking.notePlaceholder"></textarea>
+          <span class="field-error" aria-live="polite"></span>
+        </div>
+        <div class="modal-actions">
+          <button type="button" class="btn btn-outline" data-close-dialog data-i18n="booking.cancelBtn"></button>
+          <button type="submit" class="btn btn-primary" data-i18n="booking.submit"></button>
+        </div>
+      </form>
+    </div>
+  </dialog>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <a class="brand" href="/">
+          <img src="images/icon.png" alt="" width="34" height="34">
+          <span data-i18n="brand">Рядом</span>
+        </a>
+        <div class="footer-links">
+          <div>
+            <a href="/" data-i18n="footer.home">Главная</a>
+            <a href="/#about" data-i18n="footer.about">О нас</a>
+            <a href="/#plans" data-i18n="footer.plans">Тарифы</a>
+          </div>
+          <div>
+            <a href="/booking" data-i18n="footer.specialists">Найти специалиста</a>
+            <a href="/chat" data-i18n="footer.chat">Чат поддержки</a>
+            <a href="/login" data-i18n="footer.login">Личный кабинет</a>
+          </div>
+        </div>
+        <div class="socials">
+          <a href="#" aria-label="VK"><i class="fab fa-vk"></i></a>
+          <a href="#" aria-label="Telegram"><i class="fab fa-telegram"></i></a>
+          <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+          <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+        </div>
+      </div>
+      <p class="footer-bottom">© <span data-year>2025</span> <span data-i18n="brand">Рядом</span>. <span data-i18n="footer.rights">Все права защищены.</span></p>
+    </div>
+  </footer>
+</body>
+</html>

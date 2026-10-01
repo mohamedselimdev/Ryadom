@@ -1,13 +1,22 @@
+import fs from 'fs';
+import path from 'path';
 import { Sequelize } from 'sequelize';
-import dotenv from 'dotenv';
+import { config } from './env.js';
 
-dotenv.config();
+function createSequelize() {
+  const { db } = config;
 
-const sequelize = new Sequelize(process.env.DB_NAME, process.env.DB_USER, process.env.DB_PASSWORD, {
-  host: process.env.DB_HOST,
-  port: process.env.DB_PORT,
-  dialect: 'postgres',
-  logging: false, // إيقاف تسجيل الاستعلامات في الكونسول
-});
+  if (db.dialect === 'sqlite') {
+    fs.mkdirSync(path.dirname(path.resolve(db.storage)), { recursive: true });
+    return new Sequelize({ dialect: 'sqlite', storage: db.storage, logging: false });
+  }
 
-export { sequelize };
+  return new Sequelize(db.name, db.user, db.password, {
+    host: db.host,
+    port: db.port,
+    dialect: db.dialect,
+    logging: false,
+  });
+}
+
+export const sequelize = createSequelize();

@@ -1,297 +1,210 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="ru" data-title="meta.home">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Рядом - Онлайн Поддержка</title>
-    <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-    
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Рядом</title>
+  <link rel="icon" href="images/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" referrerpolicy="no-referrer">
+  <link rel="stylesheet" href="css/main.css">
+  <script type="module" src="js/pages/home.js"></script>
 </head>
 <body>
-<div class="background-element"></div>
-<div class="background-element"></div>
-<div class="background-element"></div>
-<div class="background-element"></div>
-<div class="background-element"></div>
-<div class="background-element"></div>
-<div class="background-element"></div>
-<div class="background-element"></div>
-    <nav class="navbar sticky top-0 bg-white" id="navbar">
-        <div class="container">
-            <a class="navbar-brand" href="/">
-                
-                <img width="30" height="45" alt="" src="images/icon.png" />
-                <span>Рядом</span>
-            </a>
-            
-            <button class="navbar-btn" data-toggle="collapse" data-target="#navbar-row" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="sr-only">Открыть меню панели навигации</span>
-                <span class="block h-1 rounded-full bg-primary"></span>
-                <span class="block h-1 mt-1 rounded-full bg-primary"></span>
-                <span class="block h-1 mt-1 rounded-full bg-primary"></span>
-            </button>
-            <div class="background-element"></div>
-<div class="background-element"></div>
-<div class="background-element"></div>
-<div class="background-element"></div>
-<div class="background-element"></div>
-<div class="background-element"></div>
-<div class="background-element"></div>
-            <div class="navbar-row" id="navbar-row">
-                <ul class="navbar-col"></ul>
-                <ul class="navbar-col"></ul>
-                <ul class="navbar-col">
-                    <li>
-                        <a class="nav-link font-semibold" href="#about">о нас</a>                    </li>
-                    <li>
-                        <a class="nav-link font-semibold" href="loogin.html">Вход</a>
-                    </li>
-                    <li>
-                        <a class="nav-link btn btn-primary" href="AI.html">Начать ИИ➔</a>
-                    </li>
-                </ul>
+  <div class="bubbles" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span></div>
+
+  <header class="site-header">
+    <div class="container nav">
+      <a class="brand" href="/">
+        <img src="images/icon.png" alt="" width="34" height="34">
+        <span data-i18n="brand">Рядом</span>
+      </a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-menu" data-i18n-aria-label="nav.menu" aria-label="Открыть меню">
+        <span></span><span></span><span></span>
+      </button>
+      <nav id="nav-menu" class="nav-menu">
+        <a href="/#about" data-i18n="nav.about">О нас</a>
+        <a href="/#plans" data-i18n="nav.plans">Тарифы</a>
+        <a href="/booking" data-i18n="nav.specialists">Специалисты</a>
+        <a href="/#library" data-i18n="nav.library">Библиотека</a>
+        <a href="/login" data-guest data-i18n="nav.login">Вход</a>
+        <a href="/booking#my-sessions" data-auth hidden data-i18n="nav.mySessions">Мои записи</a>
+        <button type="button" class="link-btn" data-auth data-logout hidden data-i18n="nav.logout">Выйти</button>
+        <select class="lang-select" data-lang-switch data-i18n-aria-label="lang.label" aria-label="Язык"></select>
+        <a class="btn btn-primary" href="/chat" data-i18n="nav.chat">Чат с ИИ ➔</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container">
+        <h1><span data-i18n="hero.title"></span> <span class="highlight" data-i18n="hero.titleHighlight"></span></h1>
+        <p class="hero-lead" data-i18n="hero.lead"></p>
+        <div class="choice-grid">
+          <a class="choice-card" href="/booking">
+            <img src="images/PROF.png" alt="" width="360" height="360">
+            <div class="choice-card-body">
+              <h2 data-i18n="hero.specialist.title"></h2>
+              <p data-i18n="hero.specialist.text"></p>
             </div>
-        </div>
-    </nav>
-    <section class="py-28" id="header">
-        <div class="container text-center lg:text-left">
-            <div class="row justify-center items-center">
-                <div class="col md:w-10/12 lg:w-5/12">
-                    <h1 class="typing-effect">Вас могут видеть и звать,когда вы находитесь <br>в Рядом,<br>вы чувствуете себя свободно<br>вы на удобной вас сессии</h1>
-                    <p class="PH">Поделитесь с нами своими чувствами, и мы всегда будем рядом.</p>
-                    <form class="flex flex-col gap-y-3" data-formid="e292ebb9-254a-4342-bf07-ab05a7d027d6">
-                    </div>
-                    </form>
-                    <div class="img-container">
-                        <a href="book.html">
-                            <img class="A" src="images/PROF.png" alt="Profile">
-                        </a>
-                        <a href="AI.html">
-                            <img class="B" src="images/aitherpy.png" alt="AI">
-                        </a>
-                    </div>
-                    <div class="subscription-container">
-    <div class="subscription-plan">
-        <h2>Пакет Безопасность</h2>
-        <p>Экономия 100 ₽ на первой сессии</p>
-        <h3>299,99 ₽</h3>
-        <p>За первую неделю, затем 400 ₽ в неделю</p>
-        <ul>
-            
-            <li>Одна видео- или аудиосессия с психологом или психиатром</li>
-            <li>Длительность сеанса: 45 минут для сеансов поведенческой терапии</li>
-            <li>Длительность сеанса: 15-30 минут для консультаций по медикаментозному лечению с психиатром</li>
-            <li class="not-included">Вы можете отменить подписку в любое время</li>
-            <li class="not-included">Возможность общения с терапевтом на протяжении всего срока подписки</li>
-        </ul>
-        <div class="button-container">
-            <button class="start-button" onclick="window.location.href='pay.html'">Начать сейчас</button>    
-        </div>
-    </div>
-    <div class="subscription-plan">
-        <h2>Пакет Надежда</h2>
-        <p>Экономия 150 ₽</p>
-        <h3>650 ₽</h3>
-        <p>Оплата ежемесячно</p>
-        <ul>
-            <li>4 видео/аудио сессии в месяц</li>
-            <li>Длительность сеанса: 45 минут для сеансов поведенческой терапии</li>
-            <li>Длительность сеанса: 15-30 минут для консультаций по медикаментозному лечению с психиатром</li>
-            <li>Вы можете отменить подписку в любое время</li>
-            <li class="not-included">Возможность общения с терапевтом на протяжении всего срока подписки</li>
-        </ul>
-        <div class="button-container">
-            <button class="start-button" onclick="window.location.href='pay.html'">Начать сейчас</button>    
-        </div>
-    </div>
-    <div class="subscription-plan">
-        <h2>Пакет Удовлетворение</h2>
-        <p>Экономия 380 ₽</p>
-        <h3>1119,99 ₽</h3>
-        <p>Оплата каждые 3 месяца</p>
-        <ul>
-            <li>12 видео/аудио сессий в течение срока подписки</li>
-            <li>Длительность сеанса: 45 минут для сеансов поведенческой терапии</li>
-            <li>Длительность сеанса: 15-30 минут для консультаций по медикаментозному лечению с психиатром</li>
-            <li>Вы можете отменить подписку в любое время</li>
-            <li>Возможность общения с терапевтом на протяжении всего срока подписки</li>
-        </ul>
-        <div class="button-container">
-            <button class="start-button" onclick="window.location.href='pay.html'">Начать сейчас</button>    
+          </a>
+          <a class="choice-card" href="/chat">
+            <img src="images/aitherpy.png" alt="" width="360" height="360">
+            <div class="choice-card-body">
+              <h2 data-i18n="hero.ai.title"></h2>
+              <p data-i18n="hero.ai.text"></p>
             </div>
-    </div>
-</div>
-<section id="about" class="about-section">
-    <div class="about-container">
-        <div class="about-image">
-            <img src="images/icon.png" alt="о нас">
+          </a>
         </div>
-        <div class="about-content">
-            <h2>Добро пожаловать в <span>Рядом</span>!</h2>
-            <p>
-                Мы - инновационная платформа, созданная для поддержки, объединения и помощи людям. 
-                Наша цель - сделать мир лучше, предлагая удобные инструменты для общения и взаимопомощи.
-            </p>
-            <ul class="about-list">
-                <li><i class="fa-solid fa-check-circle"></i> Поддержка 24/7</li>
-                <li><i class="fa-solid fa-check-circle"></i> Удобный и быстрый интерфейс</li>
-                <li><i class="fa-solid fa-check-circle"></i> Полная конфиденциальность и безопасность</li>
+      </div>
+    </section>
+
+    <section class="section" id="plans">
+      <div class="container">
+        <h2 class="section-title" data-i18n="plans.title"></h2>
+        <p class="section-subtitle" data-i18n="plans.subtitle"></p>
+        <div class="plans-grid">
+        <article class="plan">
+          <h3 data-i18n="plans.safety.name"></h3>
+          <p class="plan-saving" data-i18n="plans.safety.saving"></p>
+          <p class="plan-price" data-i18n="plans.safety.price"></p>
+          <p class="plan-period" data-i18n="plans.safety.period"></p>
+          <ul>
+            <li data-i18n="plans.f.oneSession"></li>
+            <li data-i18n="plans.f.duration"></li>
+            <li data-i18n="plans.f.psychiatrist"></li>
+            <li class="is-excluded" data-i18n="plans.f.cancel"></li>
+            <li class="is-excluded" data-i18n="plans.f.messaging"></li>
+          </ul>
+          <a class="btn btn-primary btn-block" href="/payment?plan=safety" data-i18n="plans.cta">Начать сейчас</a>
+        </article>
+        <article class="plan is-featured">
+          <span class="plan-badge" data-i18n="plans.popular">Популярный</span>
+          <h3 data-i18n="plans.hope.name"></h3>
+          <p class="plan-saving" data-i18n="plans.hope.saving"></p>
+          <p class="plan-price" data-i18n="plans.hope.price"></p>
+          <p class="plan-period" data-i18n="plans.hope.period"></p>
+          <ul>
+            <li data-i18n="plans.f.fourSessions"></li>
+            <li data-i18n="plans.f.duration"></li>
+            <li data-i18n="plans.f.psychiatrist"></li>
+            <li data-i18n="plans.f.cancel"></li>
+            <li class="is-excluded" data-i18n="plans.f.messaging"></li>
+          </ul>
+          <a class="btn btn-primary btn-block" href="/payment?plan=hope" data-i18n="plans.cta">Начать сейчас</a>
+        </article>
+        <article class="plan">
+          <h3 data-i18n="plans.satisfaction.name"></h3>
+          <p class="plan-saving" data-i18n="plans.satisfaction.saving"></p>
+          <p class="plan-price" data-i18n="plans.satisfaction.price"></p>
+          <p class="plan-period" data-i18n="plans.satisfaction.period"></p>
+          <ul>
+            <li data-i18n="plans.f.twelveSessions"></li>
+            <li data-i18n="plans.f.duration"></li>
+            <li data-i18n="plans.f.psychiatrist"></li>
+            <li data-i18n="plans.f.cancel"></li>
+            <li data-i18n="plans.f.messaging"></li>
+          </ul>
+          <a class="btn btn-primary btn-block" href="/payment?plan=satisfaction" data-i18n="plans.cta">Начать сейчас</a>
+        </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="about">
+      <div class="container">
+        <div class="about">
+          <img class="about-image" src="images/icon.png" alt="" width="260" height="260">
+          <div>
+            <h2><span data-i18n="about.title"></span> <span data-i18n="brand"></span>!</h2>
+            <p data-i18n="about.text"></p>
+            <ul class="check-list">
+              <li><i class="fa-solid fa-circle-check" aria-hidden="true"></i> <span data-i18n="about.item1"></span></li>
+              <li><i class="fa-solid fa-circle-check" aria-hidden="true"></i> <span data-i18n="about.item2"></span></li>
+              <li><i class="fa-solid fa-circle-check" aria-hidden="true"></i> <span data-i18n="about.item3"></span></li>
             </ul>
-            <button class="learn-more" onclick="window.location.href='pay.html'">Подробнее</button>
+            <a class="btn btn-accent" href="/booking" data-i18n="about.cta"></a>
+          </div>
         </div>
-    </div>
-</section>
-<div class="background-element"></div>
-<div class="background-element"></div>
-<div class="background-element"></div>
-<div class="background-element"></div>
-<div class="background-element"></div>
-<div class="background-element"></div>
-<div class="background-element"></div>
-<div class="background-element"></div>
-<div class="background-element"></div>
-<div class="background-element"></div>
-<section class="library">
-    <h2 class="library-title"><i class="fas fa-book"></i> Библиотека знаний</h2>
+      </div>
+    </section>
 
-    <div class="search-bar">
-        <input type="text" id="searchInput" placeholder="🔍 Найти материалы..." onkeyup="filterContent()">
-    </div>
-
-    <div class="categories">
-        <button class="category-btn active" onclick="filterCategory('all')"><i class="fas fa-th"></i> Все</button>
-        <button class="category-btn" onclick="filterCategory('articles')"><i class="fas fa-file-alt"></i> Статьи</button>
-        <button class="category-btn" onclick="filterCategory('videos')"><i class="fas fa-video"></i> Видео</button>
-        <button class="category-btn" onclick="filterCategory('files')"><i class="fas fa-folder"></i> Файлы</button>
-    </div>
-
-    <div class="library-content">
-        <div class="library-item articles">
-            <h3><i class="fas fa-file-alt"></i> Как справляться со стрессом</h3>
-            <p>Полезные советы и методы для снижения стресса.</p>
-            <a href="https://gorzdrav.org/blog/kak-borotsja-so-stressom/?utm_source=google.com&utm_medium=organic&utm_campaign=google.com&utm_referrer=google.com">Читать больше →</a>
+    <section class="section" id="library">
+      <div class="container">
+        <h2 class="section-title"><i class="fas fa-book-open" aria-hidden="true"></i> <span data-i18n="library.title"></span></h2>
+        <p class="section-subtitle" data-i18n="library.subtitle"></p>
+        <div class="library-tools">
+          <input id="library-search" class="input search-input" type="search" data-i18n-placeholder="library.search" data-i18n-aria-label="library.search">
+          <div class="chips" role="group">
+            <button type="button" class="chip is-active" data-category="all" aria-pressed="true" data-i18n="library.all"></button>
+            <button type="button" class="chip" data-category="articles" aria-pressed="false" data-i18n="library.articles"></button>
+            <button type="button" class="chip" data-category="videos" aria-pressed="false" data-i18n="library.videos"></button>
+            <button type="button" class="chip" data-category="files" aria-pressed="false" data-i18n="library.files"></button>
+          </div>
         </div>
+        <div class="library-grid">
+        <article class="library-item" data-type="articles">
+          <h3><i class="fas fa-file-lines" aria-hidden="true"></i> <span data-i18n="library.stress.title"></span></h3>
+          <p data-i18n="library.stress.text"></p>
+          <a href="https://gorzdrav.org/blog/kak-borotsja-so-stressom/" target="_blank" rel="noopener noreferrer" data-i18n="library.stress.link"></a>
+        </article>
+        <article class="library-item" data-type="videos">
+          <h3><i class="fas fa-video" aria-hidden="true"></i> <span data-i18n="library.meditation.title"></span></h3>
+          <p data-i18n="library.meditation.text"></p>
+          <a href="https://www.youtube.com/watch?v=F0p2dl_XpMc" target="_blank" rel="noopener noreferrer" data-i18n="library.meditation.link"></a>
+        </article>
+        <article class="library-item" data-type="files">
+          <h3><i class="fas fa-file-pdf" aria-hidden="true"></i> <span data-i18n="library.guide.title"></span></h3>
+          <p data-i18n="library.guide.text"></p>
+          <a href="https://interagencystandingcommittee.org/sites/default/files/migrated/2019-03/iasc_mhpss_guidelines_russian_0.pdf" target="_blank" rel="noopener noreferrer" data-i18n="library.guide.link"></a>
+        </article>
+        </div>
+        <p id="library-empty" class="empty-state" hidden data-i18n="library.empty"></p>
+      </div>
+    </section>
 
-        <div class="library-item videos">
-            <h3><i class="fas fa-video"></i> Медитация для расслабления</h3>
-            <p>Короткое видео о том, как расслабиться и снять напряжение.</p>
-            <a href="https://www.youtube.com/watch?v=F0p2dl_XpMc">Смотреть видео →</a>
+    <section class="section" id="specialists">
+      <div class="container">
+        <h2 class="section-title" data-i18n="specialists.title"></h2>
+        <p class="section-subtitle" data-i18n="specialists.subtitle"></p>
+        <div class="carousel">
+          <button type="button" class="carousel-btn prev" data-i18n-aria-label="specialists.prev"><i class="fas fa-chevron-left" aria-hidden="true"></i></button>
+          <div id="specialists-track" class="carousel-track"></div>
+          <button type="button" class="carousel-btn next" data-i18n-aria-label="specialists.next"><i class="fas fa-chevron-right" aria-hidden="true"></i></button>
         </div>
+        <p class="center"><a class="btn btn-outline" href="/booking" data-i18n="specialists.all"></a></p>
+      </div>
+    </section>
+  </main>
 
-        <div class="library-item files">
-            <h3><i class="fas fa-file-pdf"></i> PDF: Руководство по самопомощи</h3>
-            <p>Скачать бесплатное руководство для психологического благополучия.</p>
-            <a href="https://interagencystandingcommittee.org/sites/default/files/migrated/2019-03/iasc_mhpss_guidelines_russian_0.pdf">Скачать файл →</a>
-        </div>
-    </div>
-</section>
-<div class="doctors-session">
-    <button class="scroll-btn prev-btn" onclick="scrollDoctors(-1)">&#10094;</button>
-    
-    <div class="doctors-container">
-        <div class="doctor-card">
-            <img src="images/6.jpeg" alt="Доктор">
-            <div class="doctor-info">
-                <div class="doctor-name">Д-р Ирина Иванов</div>
-                <div class="doctor-details">
-                    <p>Сертификаты: MD, PhD</p>
-                    <p>Опыт: 10 лет</p>
-                    <p>Доступен: Пн - Пт (10:00 - 18:00)</p>
-                </div>
-            </div>
-        </div>
-
-        <div class="doctor-card">
-            <img src="images/2.jpeg" alt="Доктор">
-            <div class="doctor-info">
-                <div class="doctor-name">Д-р Анна Смирнова</div>
-                <div class="doctor-details">
-                    <p>Сертификаты: MD, MSc</p>
-                    <p>Опыт: 8 лет</p>
-                    <p>Доступен: Вт - Сб (09:00 - 17:00)</p>
-                </div>
-            </div>
-        </div>
-
-        <div class="doctor-card">
-            <img src="images/3.jpeg" alt="Доктор">
-            <div class="doctor-info">
-                <div class="doctor-name">Д-р Олга Петров</div>
-                <div class="doctor-details">
-                    <p>Сертификаты: MD, кардиолог</p>
-                    <p>Опыт: 15 лет</p>
-                    <p>Доступен: Пн - Чт (08:00 - 16:00)</p>
-                </div>
-            </div>
-        </div>
-
-        <div class="doctor-card">
-            <img src="images/4.webp" alt="Доктор">
-            <div class="doctor-info">
-                <div class="doctor-name">Д-р Мария Алексеева</div>
-                <div class="doctor-details">
-                    <p>Сертификаты: MD, невролог</p>
-                    <p>Опыт: 12 лет</p>
-                    <p>Доступен: Ср - Вс (10:00 - 19:00)</p>
-                </div>
-            </div>
-        </div>
-        
-        <div class="doctor-card">
-            <img src="images/5.jpeg" alt="Доктор">
-            <div class="doctor-info">
-                <div class="doctor-name">Д-р Маша Кузнецов</div>
-                <div class="doctor-details">
-                    <p>Сертификаты: MD, хирург</p>
-                    <p>Опыт: 20 лет</p>
-                    <p>Доступен: Пн - Сб (11:00 - 20:00)</p>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <button class="scroll-btn next-btn" onclick="scrollDoctors(1)">&#10095;</button>
-</div>
-<footer class="footer">
-    <div class="footer-container">
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <a class="brand" href="/">
+          <img src="images/icon.png" alt="" width="34" height="34">
+          <span data-i18n="brand">Рядом</span>
+        </a>
         <div class="footer-links">
-            <div class="footer-column">
-                <a href="#">Главная</a>
-                <a href="http://127.0.0.1:5500/public/pay.html">Бизнес</a>
-                <a href="#about">О нас</a>
-                <a href="#">Советы</a>
-                <a href="#">Карьера</a>
-                <a href="#">Найти терапевта</a>
-            </div>
-            <div class="footer-column">
-                <a href="#">Найти терапевта</a>
-                <a href="#"> Контакты</a>
-                <a href="#">Для терапевтов</a>
-            </div>
+          <div>
+            <a href="/" data-i18n="footer.home">Главная</a>
+            <a href="/#about" data-i18n="footer.about">О нас</a>
+            <a href="/#plans" data-i18n="footer.plans">Тарифы</a>
+          </div>
+          <div>
+            <a href="/booking" data-i18n="footer.specialists">Найти специалиста</a>
+            <a href="/chat" data-i18n="footer.chat">Чат поддержки</a>
+            <a href="/login" data-i18n="footer.login">Личный кабинет</a>
+          </div>
         </div>
-        
-        <div class="footer-social">
-            <a href="#"><i class="fab fa-facebook-f"></i></a>
-            <a href="#"><i class="fab fa-instagram"></i></a>
-            <a href="#"><i class="fab fa-tiktok"></i></a>
-            <a href="#"><i class="fab fa-x-twitter"></i></a>
-            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+        <div class="socials">
+          <a href="#" aria-label="VK"><i class="fab fa-vk"></i></a>
+          <a href="#" aria-label="Telegram"><i class="fab fa-telegram"></i></a>
+          <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+          <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
         </div>
+      </div>
+      <p class="footer-bottom">© <span data-year>2025</span> <span data-i18n="brand">Рядом</span>. <span data-i18n="footer.rights">Все права защищены.</span></p>
     </div>
-
-    <div class="footer-bottom">
-        <a href="#"> Условия и положения</a>
-        <a href="#">Политика конфиденциальности</a>
-        <a href="#">Настройки обмена</a>
-        <a href="#">Доступность веб-сайта</a>
-        <span>© 2025 Рядом</span>
-    </div>
-</footer>
-
-
-<script src="script.js"></script>                 
+  </footer>
 </body>
 </html>
-
- 

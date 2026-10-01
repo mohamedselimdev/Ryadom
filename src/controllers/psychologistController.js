@@ -1,14 +1,27 @@
-import { Psychologist } from '../models/Psychologist.js';
+import { Psychologist } from '../models/index.js';
+import { HttpError } from '../utils/httpError.js';
 
-const registerPsychologist = async (req, res) => {
-  const { name, email, password, specialization } = req.body;
-
-  try {
-    const psychologist = await Psychologist.create({ name, email, password, specialization });
-    res.status(201).json({ message: 'Psychologist registered successfully', psychologist });
-  } catch (err) {
-    res.status(400).json({ message: 'Error registering psychologist', error: err.message });
-  }
+export const listPsychologists = async (req, res) => {
+  const psychologists = await Psychologist.findAll({ order: [['id', 'ASC']] });
+  res.json({ psychologists });
 };
 
-export { registerPsychologist }; // تصدير الدالة باستخدام export
+export const getPsychologist = async (req, res) => {
+  const psychologist = await Psychologist.findByPk(req.params.id);
+  if (!psychologist) throw new HttpError(404, 'errors.psychologistNotFound');
+  res.json({ psychologist });
+};
+
+export const createPsychologist = async (req, res) => {
+  const { name, specialization, experienceYears, schedule, photo, bio, translations } = req.body;
+  const psychologist = await Psychologist.create({
+    name,
+    specialization,
+    experienceYears,
+    schedule,
+    photo,
+    bio,
+    translations,
+  });
+  res.status(201).json({ psychologist });
+};
